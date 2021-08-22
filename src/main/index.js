@@ -29,41 +29,34 @@ function MainPage() {
   // });
   return (
     <div>
-      <div id="header">
-        <div id="hearder-area">
-          <img src="images/icons/logo.png" />
-        </div>
+      <div id="banner">
+        <img src="images/banners/banner1.jpg" />
       </div>
-
-      <div id="body">
-        <div id="banner">
-          <img src="images/banners/banner1.jpg" />
-        </div>
-        <h1>상품리스트</h1>
-        <div id="product-list">
-          {products.map(function (product, index) {
-            return (
-              <div className="product-card">
-                <Link className="product-link" to={`/products/${index}`}>
-                  <div>
-                    <img className="product-img" src={product.imageUrl} />
+      <h1>상품리스트</h1>
+      <div id="product-list">
+        {products.map(function (product, index) {
+          return (
+            <div className="product-card">
+              <Link className="product-link" to={`/products/${product.id}`}>
+                <div>
+                  <img className="product-img" src={product.imageUrl} />
+                </div>
+                <div className="product-contents">
+                  <span className="product-name">{product.name}</span>
+                  <span className="product-price">{product.price}원</span>
+                  <div className="product-seller">
+                    <img
+                      className="product-avatar"
+                      src="images/icons/avatar.png"
+                    />
+                    <span>{product.seller}</span>
                   </div>
-                  <div className="product-contents">
-                    <span className="product-name">{product.name}</span>
-                    <span className="product-price">{product.price}원</span>
-                    <div className="product-seller">
-                      <img
-                        className="product-avatar"
-                        src="images/icons/avatar.png"
-                      />
-                      <span>{product.seller}</span>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            );
-          })}
-          {/* <div className="product-card">
+                </div>
+              </Link>
+            </div>
+          );
+        })}
+        {/* <div className="product-card">
             <div>
               <img className="product-img" src="images/products/1.jpg" />
             </div>
@@ -76,10 +69,7 @@ function MainPage() {
               </div>
             </div>
           </div> */}
-        </div>
       </div>
-
-      <div id="footer"></div>
     </div>
   );
 }
